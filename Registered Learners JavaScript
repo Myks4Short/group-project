@@ -1,0 +1,75 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const learnerTable = document.getElementById('learnerData');
+
+    // Load learners data from localStorage
+    function loadLearners() {
+        let learners = JSON.parse(localStorage.getItem('learners')) || [];
+        learnerTable.innerHTML = ''; // Clear the table before loading
+
+        learners.forEach((learner, index) => {
+            let row = learnerTable.insertRow();
+
+            row.insertCell(0).innerText = learner.learnerId;
+            row.insertCell(1).innerText = learner.entryDate;
+            row.insertCell(2).innerText = learner.name;
+            row.insertCell(3).innerText = learner.address;
+            row.insertCell(4).innerText = learner.email;
+            row.insertCell(5).innerText = learner.contactNumber;
+            row.insertCell(6).innerText = learner.nationality;
+            row.insertCell(7).innerText = learner.learnerClassification;
+            row.insertCell(8).innerText = learner.disabilityType;
+            row.insertCell(9).innerText = learner.disabilityCause;
+            row.insertCell(10).innerText = learner.takenNCAE;
+            row.insertCell(11).innerText = learner.courseQualification;
+            row.insertCell(12).innerText = learner.scholarshipPackage;
+            row.insertCell(13).innerText = learner.sex; // New field
+            row.insertCell(14).innerText = learner.civilStatus; // New field
+            row.insertCell(15).innerText = learner.employmentStatus; // New field
+
+            let actionCell = row.insertCell(16);
+            actionCell.innerHTML = `
+                <button onclick="editLearner(${index})" class="text-blue-500">Edit</button>
+                <button onclick="deleteLearner(${index})" class="text-red-500 ml-2">Delete</button>
+            `;
+        });
+    }
+
+    // Delete a learner
+    window.deleteLearner = function(index) {
+        let learners = JSON.parse(localStorage.getItem('learners')) || [];
+        learners.splice(index, 1); // Remove the learner at the index
+        localStorage.setItem('learners', JSON.stringify(learners));
+        loadLearners(); // Reload the learners table
+    };
+
+    // Edit a learner
+    window.editLearner = function(index) {
+        let learners = JSON.parse(localStorage.getItem('learners')) || [];
+        let learner = learners[index];
+        
+        // Prompt to edit values (In a real app, this would be a form instead of prompts)
+        learner.learnerId = prompt("Update Learner ID", learner.learnerId);
+        learner.entryDate = prompt("Update Entry Date", learner.entryDate);
+        learner.name = prompt("Update Name", learner.name);
+        learner.address = prompt("Update Address", learner.address);
+        learner.email = prompt("Update Email", learner.email);
+        learner.contactNumber = prompt("Update Contact Number", learner.contactNumber);
+        learner.nationality = prompt("Update Nationality", learner.nationality);
+        learner.learnerClassification = prompt("Update Learner Classification", learner.learnerClassification);
+        learner.disabilityType = prompt("Update Disability Type", learner.disabilityType);
+        learner.disabilityCause = prompt("Update Disability Cause", learner.disabilityCause);
+        learner.takenNCAE = prompt("Update Taken NCAE", learner.takenNCAE);
+        learner.courseQualification = prompt("Update Course Qualification", learner.courseQualification);
+        learner.scholarshipPackage = prompt("Update Scholarship Package", learner.scholarshipPackage);
+        learner.sex = prompt("Update Sex", learner.sex); // New field
+        learner.civilStatus = prompt("Update Civil Status", learner.civilStatus); // New field
+        learner.employmentStatus = prompt("Update Employment Status", learner.employmentStatus); // New field
+
+        learners[index] = learner;
+        localStorage.setItem('learners', JSON.stringify(learners));
+        loadLearners(); // Reload the learners table
+    };
+
+    // Initially load the learners data
+    loadLearners();
+});
