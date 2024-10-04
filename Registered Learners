@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Learners</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold text-center mb-6">Registered Learners</h1>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-200 text-sm">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="py-2 px-4 border-b">Learner ID</th>
+                        <th class="py-2 px-4 border-b">Entry Date</th>
+                        <th class="py-2 px-4 border-b">Name</th>
+                        <th class="py-2 px-4 border-b">Address</th>
+                        <th class="py-2 px-4 border-b">Email</th>
+                        <th class="py-2 px-4 border-b">Contact Number</th>
+                        <th class="py-2 px-4 border-b">Nationality</th>
+                        <th class="py-2 px-4 border-b">Learner Classification</th>
+                        <th class="py-2 px-4 border-b">Disability Type</th>
+                        <th class="py-2 px-4 border-b">Disability Cause</th>
+                        <th class="py-2 px-4 border-b">Taken NCAE</th>
+                        <th class="py-2 px-4 border-b">Course Qualification</th>
+                        <th class="py-2 px-4 border-b">Scholarship Package</th>
+                        <th class="py-2 px-4 border-b">Sex</th> <!-- New Field -->
+                        <th class="py-2 px-4 border-b">Civil Status</th> <!-- New Field -->
+                        <th class="py-2 px-4 border-b">Employment Status</th> <!-- New Field -->
+                        <th class="py-2 px-4 border-b">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="learnerData" class="text-center">
+                    <!-- Learner Data Rows Here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
+    <script src="test.js"></script>
+</body>
+</html>
+
